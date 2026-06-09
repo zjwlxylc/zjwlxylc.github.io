@@ -4,17 +4,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>知行 · Zhixing</title>
-	<meta name="description" content="知行 - 知行合一，以技术修心，在实践中成长">
+	<title>慧行 · Huixing</title>
+	<meta name="description" content="慧行 - 慧心觉行，以技术修心，在实践中成长">
 	<meta name="theme-color" content="#6366f1">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<!-- 引入霞鹜文楷屏幕阅读体 -->
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css">
-	<!-- Font Awesome CDN -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-	<!-- 主样式表 -->
 	<link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,227 +21,194 @@
 		<div class="loading-spinner"></div>
 	</div>
 
-	<!-- 滚动进度条 -->
-	<div class="progress-bar"></div>
+	<!-- 右侧导航点 -->
+	<nav class="section-nav">
+		<a href="#section-hero" class="nav-dot active" data-index="0"><span>首页</span></a>
+		<a href="#section-about" class="nav-dot" data-index="1"><span>关于</span></a>
+		<a href="#section-skills" class="nav-dot" data-index="2"><span>技能</span></a>
+		<a href="#section-projects" class="nav-dot" data-index="3"><span>作品</span></a>
+		<a href="#section-contact" class="nav-dot" data-index="4"><span>联系</span></a>
+	</nav>
 
-	<!-- 背景装饰元素 -->
-	<div class="decoration-lines left"></div>
-	<div class="decoration-lines right"></div>
-	<div class="floating-dots">
-		<div class="floating-dot"></div>
-		<div class="floating-dot"></div>
-		<div class="floating-dot"></div>
-		<div class="floating-dot"></div>
-	</div>
+	<!-- 背景装饰 -->
+	<div class="bg-glow glow-1"></div>
+	<div class="bg-glow glow-2"></div>
+	<div class="bg-glow glow-3"></div>
 
-	<!-- 左侧装饰元素 -->
-	<div class="side-decoration left">
-		<div class="geometric-shape circle"></div>
-		<div class="geometric-shape square"></div>
-		<div class="geometric-shape triangle"></div>
-		<div class="geometric-line"></div>
-		<div class="geometric-line"></div>
-		<div class="geometric-line"></div>
-	</div>
+	<!-- 全屏滚动容器 -->
+	<div class="fullpage-wrapper">
 
-	<!-- 右侧装饰元素 -->
-	<div class="side-decoration right">
-		<div class="geometric-shape circle"></div>
-		<div class="geometric-shape square"></div>
-		<div class="geometric-shape triangle"></div>
-		<div class="geometric-line"></div>
-		<div class="geometric-line"></div>
-		<div class="geometric-line"></div>
-	</div>
-
-	<div class="container">
-		<div class="card">
-			<div class="profile">
+		<!-- 第一屏：首页 Hero -->
+		<section class="section section-hero" id="section-hero">
+			<div class="section-inner">
 				<div class="avatar">
-					<div class="avatar-placeholder">知行</div>
+					<div class="avatar-placeholder">慧行</div>
 				</div>
-				<h1>知行</h1>
-				<p class="title">
+				<h1 class="hero-name">慧行</h1>
+				<p class="hero-title">
 					<i class="fas fa-brain"></i>
 					AI 工程化实践者 & 全栈开发者
 				</p>
-				<div class="location">
+				<p class="hero-motto">慧心觉行 · 以技术修心 · 在实践中成长</p>
+				<div class="hero-location">
 					<i class="fas fa-map-marker-alt"></i>
 					<span>中国，宁波</span>
 				</div>
+				<div class="scroll-hint">
+					<span>向下滚动</span>
+					<i class="fas fa-chevron-down"></i>
+				</div>
 			</div>
+		</section>
 
-			<!-- 联系方式 小组件 -->
-			<div class="widget-container">
-				<div class="widget contact-widget">
-					<div class="contact-card">
-						<div class="contact-content">
-							<div class="contact-icon">
-								<i class="fa fa-paper-plane"></i>
-							</div>
-							<div class="contact-text">
-								<p>期待与同频的人交流连接！</p>
-							</div>
-						</div>
-						<button class="subscribe-btn">
-							<i class="fas fa-qrcode"></i>
-							联系方式
-						</button>
+		<!-- 第二屏：关于我 -->
+		<section class="section section-about" id="section-about">
+			<div class="section-inner">
+				<div class="section-badge"><i class="fas fa-address-card"></i></div>
+				<h2 class="section-title">关于我</h2>
+				<div class="about-content">
+					<p>信奉「慧心觉行」，在技术实践中修心，在持续学习中进化。擅长 AI 工程化落地、全栈开发与自动化运维，热衷将复杂技术转化为可复用的 Skill 和工具。</p>
+					<p>当前专注于 AI Agent 工作流编排、个人知识体系构建，以及用技术驱动认知升级。相信每一段代码都是修行，每一次实践都是觉知。</p>
+				</div>
+				<div class="about-stats">
+					<div class="stat-item">
+						<div class="stat-number">6+</div>
+						<div class="stat-label">自定义 Skills</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">100+</div>
+						<div class="stat-label">自动化任务</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">∞</div>
+						<div class="stat-label">学习热情</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-number">1</div>
+						<div class="stat-label">慧心觉行</div>
 					</div>
 				</div>
 			</div>
+		</section>
 
-			<!-- 关于我 小组件 -->
-			<div class="widget-container">
-				<div class="widget about-widget">
-					<div class="widget-header">
-						<div class="widget-icon about-icon">
-							<i class="fa fa-address-card"></i>
-						</div>
-						<h2>关于我</h2>
+		<!-- 第三屏：技能图谱 -->
+		<section class="section section-skills" id="section-skills">
+			<div class="section-inner">
+				<div class="section-badge"><i class="fas fa-code"></i></div>
+				<h2 class="section-title">技能图谱</h2>
+				<div class="skills-grid">
+					<div class="skill-card">
+						<div class="skill-icon"><i class="fas fa-robot"></i></div>
+						<h4>AI 工程化</h4>
+						<p>Prompt Engineering · Skill 设计 · Agent 工作流</p>
 					</div>
-					<div class="widget-content">
-						<p>信奉「知行合一」，在技术实践中修心，在持续学习中进化。擅长 AI 工程化落地、全栈开发与自动化运维，热衷将复杂技术转化为可复用的 Skill 和工具。当前专注于 AI Agent 工作流编排、个人知识体系构建，以及用技术驱动认知升级。相信每一段代码都是修行，每一次实践都是觉知。</p>
+					<div class="skill-card">
+						<div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+						<h4>全栈开发</h4>
+						<p>Python · Node.js · Vue/React · 数据库</p>
+					</div>
+					<div class="skill-card">
+						<div class="skill-icon"><i class="fas fa-cogs"></i></div>
+						<h4>自动化运维</h4>
+						<p>CI/CD · Docker · 云部署 · 监控</p>
+					</div>
+					<div class="skill-card">
+						<div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+						<h4>数据分析</h4>
+						<p>Pandas · 可视化 · 金融数据 · 研报</p>
+					</div>
+					<div class="skill-card">
+						<div class="skill-icon"><i class="fas fa-yin-yang"></i></div>
+						<h4>认知科学</h4>
+						<p>思维模型 · 决策框架 · 知识管理</p>
+					</div>
+					<div class="skill-card">
+						<div class="skill-icon"><i class="fas fa-spa"></i></div>
+						<h4>正念修行</h4>
+						<p>八字命理 · 流日观察 · 觉知日记</p>
 					</div>
 				</div>
 			</div>
+		</section>
 
-			<!-- 技能树 小组件 -->
-			<div class="widget-container">
-				<div class="widget skills-widget">
-					<div class="widget-header">
-						<div class="widget-icon skills-icon">
-							<i class="fa fa-code"></i>
+		<!-- 第四屏：项目作品 -->
+		<section class="section section-projects" id="section-projects">
+			<div class="section-inner">
+				<div class="section-badge"><i class="fas fa-gift"></i></div>
+				<h2 class="section-title">作品 & 项目</h2>
+				<div class="projects-list">
+					<a href="https://github.com/zjwlxylc" target="_blank" class="project-card">
+						<div class="project-icon" style="background:linear-gradient(135deg,#6366f1,#4f46e5)"><i class="fas fa-magic"></i></div>
+						<div class="project-info">
+							<h4>Skill Creator</h4>
+							<p>AI Skill 创建与优化工具，基于实战方法论</p>
 						</div>
-						<h2>技能图谱</h2>
-					</div>
-					<div class="widget-content">
-						<div class="skills-grid">
-							<div class="skill-item">
-								<div class="skill-icon"><i class="fas fa-robot"></i></div>
-								<div class="skill-info">
-									<h4>AI 工程化</h4>
-									<p>Prompt Engineering · Skill 设计 · Agent 工作流</p>
-								</div>
-							</div>
-							<div class="skill-item">
-								<div class="skill-icon"><i class="fas fa-layer-group"></i></div>
-								<div class="skill-info">
-									<h4>全栈开发</h4>
-									<p>Python · Node.js · Vue/React · 数据库</p>
-								</div>
-							</div>
-							<div class="skill-item">
-								<div class="skill-icon"><i class="fas fa-cogs"></i></div>
-								<div class="skill-info">
-									<h4>自动化运维</h4>
-									<p>CI/CD · Docker · 云部署 · 监控</p>
-								</div>
-							</div>
-							<div class="skill-item">
-								<div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-								<div class="skill-info">
-									<h4>数据分析</h4>
-									<p>Pandas · 可视化 · 金融数据 · 研报</p>
-								</div>
-							</div>
-							<div class="skill-item">
-								<div class="skill-icon"><i class="fas fa-yin-yang"></i></div>
-								<div class="skill-info">
-									<h4>认知科学</h4>
-									<p>思维模型 · 决策框架 · 知识管理</p>
-								</div>
-							</div>
-							<div class="skill-item">
-								<div class="skill-icon"><i class="fas fa-spa"></i></div>
-								<div class="skill-info">
-									<h4>正念修行</h4>
-									<p>八字命理 · 流日观察 · 觉知日记</p>
-								</div>
-							</div>
+						<div class="project-arrow"><i class="fas fa-arrow-right"></i></div>
+					</a>
+					<a href="https://github.com/zjwlxylc" target="_blank" class="project-card">
+						<div class="project-icon" style="background:linear-gradient(135deg,#a78bfa,#7c3aed)"><i class="fas fa-yin-yang"></i></div>
+						<div class="project-info">
+							<h4>慧行人生观察</h4>
+							<p>全貌人生观察系统，投资·修行·关系多维度</p>
 						</div>
-					</div>
+						<div class="project-arrow"><i class="fas fa-arrow-right"></i></div>
+					</a>
+					<a href="https://github.com/zjwlxylc" target="_blank" class="project-card">
+						<div class="project-icon" style="background:linear-gradient(135deg,#22d3ee,#06b6d4)"><i class="fas fa-rocket"></i></div>
+						<div class="project-info">
+							<h4>Pages Deploy</h4>
+							<p>静态网站修改后一键自动部署</p>
+						</div>
+						<div class="project-arrow"><i class="fas fa-arrow-right"></i></div>
+					</a>
+					<a href="https://github.com/zjwlxylc" target="_blank" class="project-card">
+						<div class="project-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><i class="fas fa-calculator"></i></div>
+						<div class="project-info">
+							<h4>绩效计算器</h4>
+							<p>咨询部/护理部绩效工资自动化计算</p>
+						</div>
+						<div class="project-arrow"><i class="fas fa-arrow-right"></i></div>
+					</a>
 				</div>
 			</div>
+		</section>
 
-			<!-- 项目作品 小组件 -->
-			<div class="widget-container">
-				<div class="widget products-widget">
-					<div class="widget-header">
-						<div class="widget-icon products-icon">
-							<i class="fa fa-gift"></i>
+		<!-- 第五屏：联系我 -->
+		<section class="section section-contact" id="section-contact">
+			<div class="section-inner">
+				<div class="section-badge"><i class="fas fa-paper-plane"></i></div>
+				<h2 class="section-title">与我连接</h2>
+				<p class="contact-desc">期待与同频的人交流，一起探索技术与修行的交汇点</p>
+				<div class="contact-links">
+					<a href="mailto:20893788@qq.com" class="contact-card">
+						<div class="contact-icon-wrap email-icon"><i class="fas fa-envelope"></i></div>
+						<div class="contact-info">
+							<h4>Email</h4>
+							<p>20893788@qq.com</p>
 						</div>
-						<h2>作品 & 项目</h2>
-					</div>
-					<div class="widget-content">
-						<!-- 项目内容将通过JavaScript动态生成 -->
-					</div>
+					</a>
+					<a href="javascript:void(0)" class="contact-card" id="copy-wechat">
+						<div class="contact-icon-wrap wechat-icon"><i class="fab fa-weixin"></i></div>
+						<div class="contact-info">
+							<h4>WeChat</h4>
+							<p>点击复制微信号</p>
+						</div>
+					</a>
+					<a href="https://github.com/zjwlxylc" target="_blank" class="contact-card">
+						<div class="contact-icon-wrap github-icon"><i class="fab fa-github"></i></div>
+						<div class="contact-info">
+							<h4>GitHub</h4>
+							<p>查看开源项目</p>
+						</div>
+					</a>
 				</div>
+				<footer class="footer">
+					<span>2025 - 2026</span> © <a href="https://zjwlxylc.github.io" target="_blank">慧行</a>
+				</footer>
 			</div>
-		</div>
+		</section>
+
 	</div>
-
-	<!-- 社交媒体弹窗 -->
-	<div class="modal" id="social-modal">
-		<div class="modal-content">
-			<span class="close">
-				<i class="fas fa-times"></i>
-			</span>
-			<div class="modal-header">
-				<i class="fas fa-share-alt"></i>
-				<h3>联系方式</h3>
-			</div>
-
-			<!-- 社交媒体链接 -->
-			<div class="social-links">
-				<a href="mailto:20893788@qq.com" class="social-link email">
-					<div class="social-icon">
-						<i class="fas fa-envelope"></i>
-					</div>
-					<div class="social-info">
-						<h4>Email</h4>
-						<p>20893788@qq.com</p>
-					</div>
-					<div class="social-arrow">
-						<i class="fas fa-chevron-right"></i>
-					</div>
-				</a>
-
-				<a href="javascript:void(0)" class="social-link wechat" id="copy-wechat">
-					<div class="social-icon">
-						<i class="fab fa-weixin"></i>
-					</div>
-					<div class="social-info">
-						<h4>WeChat</h4>
-						<p>点击复制微信号</p>
-					</div>
-					<div class="social-arrow copy-icon">
-						<i class="fas fa-copy"></i>
-					</div>
-				</a>
-
-				<a href="https://github.com/zjwlxylc" target="_blank" class="social-link github">
-					<div class="social-icon">
-						<i class="fab fa-github"></i>
-					</div>
-					<div class="social-info">
-						<h4>GitHub</h4>
-						<p>查看我的开源项目</p>
-					</div>
-					<div class="social-arrow">
-						<i class="fas fa-chevron-right"></i>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
-
-	<!-- 页脚 -->
-	<footer class="footer">
-		<div class="copyright">
-			<!-- 版权信息将通过JavaScript动态生成 -->
-		</div>
-	</footer>
 
 	<!-- 复制成功提示 -->
 	<div class="toast" id="toast-message">
@@ -252,7 +216,6 @@
 		<span>微信号已复制到剪贴板！</span>
 	</div>
 
-	<!-- 主脚本 -->
 	<script src="script.js"></script>
 </body>
 
