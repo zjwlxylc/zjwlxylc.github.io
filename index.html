@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知行 | 个人主页</title>
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --card: rgba(255,255,255,0.04);
+            --card-hover: rgba(255,255,255,0.08);
+            --border: rgba(255,255,255,0.08);
+            --text: #e4e4e7;
+            --text-dim: #71717a;
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139,92,246,0.3);
+            --gradient-1: #8b5cf6;
+            --gradient-2: #06b6d4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* 背景装饰 */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bg-glow-1 { top: -200px; left: -100px; background: var(--gradient-1); }
+        .bg-glow-2 { bottom: -200px; right: -100px; background: var(--gradient-2); }
+
+        /* 导航 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(10,10,15,0.7);
+            border-bottom: 1px solid var(--border);
+        }
+        nav .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        nav .links { display: flex; gap: 2rem; }
+        nav .links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav .links a:hover { color: var(--text); }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+        .hero .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 60px var(--accent-glow);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .hero .cta-group { display: flex; gap: 1rem; }
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 30px var(--accent-glow); }
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .btn-outline:hover { background: var(--card-hover); border-color: var(--accent); }
+
+        /* 通用 Section */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        section .section-desc {
+            color: var(--text-dim);
+            margin-bottom: 3rem;
+            font-size: 1.05rem;
+        }
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* 关于 */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .about-text { color: var(--text-dim); line-height: 1.9; }
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .stat-card:hover { background: var(--card-hover); transform: translateY(-2px); }
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gradient-1), var(--gradient-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .label { color: var(--text-dim); font-size: 0.85rem; margin-top: 0.3rem; }
+
+        /* 技能 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .skill-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s;
+        }
+        .skill-card:hover { background: var(--card-hover); transform: translateY(-3px); border-color: var(--accent); }
+        .skill-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .skill-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .skill-card p { color: var(--text-dim); font-size: 0.85rem; }
+
+        /* 项目 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        .project-card:hover { background: var(--card-hover); transform: translateY(-3px); border-color: var(--accent); }
+        .project-card h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .project-card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem; }
+        .project-card .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 9999px;
+            background: rgba(139,92,246,0.12);
+            color: var(--accent);
+            border: 1px solid rgba(139,92,246,0.2);
+        }
+
+        /* 联系 */
+        .contact-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .contact-card {
+            flex: 1;
+            min-width: 200px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s;
+        }
+        .contact-card:hover { background: var(--card-hover); transform: translateY(-3px); border-color: var(--accent); }
+        .contact-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .contact-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+        .contact-card p { color: var(--text-dim); font-size: 0.85rem; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        /* 动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-content { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            nav .links { gap: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .skills-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .hero .cta-group { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <nav>
+        <div class="logo">知行</div>
+        <div class="links">
+            <a href="#about">关于</a>
+            <a href="#skills">技能</a>
+            <a href="#projects">项目</a>
+            <a href="#contact">联系</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="avatar">🧘</div>
+        <h1>知 行</h1>
+        <p class="tagline">知行合一 · 以技术修心 · 在实践中成长</p>
+        <div class="cta-group">
+            <a href="#about" class="btn btn-primary">了解更多</a>
+            <a href="#contact" class="btn btn-outline">联系我</a>
+        </div>
+    </div>
+
+    <section id="about" class="fade-in">
+        <div class="section-label">关于我</div>
+        <h2>知行合一</h2>
+        <p class="section-desc">在实践中认识世界，在反思中提升自我</p>
+        <div class="about-content">
+            <div class="about-text">
+                <p>我是知行，一个热爱技术与修行的探索者。相信"知行合一"——真正的知识来自实践，真正的实践需要认知的指引。</p>
+                <br>
+                <p>我关注 AI 技术的落地应用，擅长将复杂的工具和流程简化为可复用的 Skill，让 AI 真正成为效率倍增器。同时，我也在修行中观照自我，从投资、情绪、健康等多维度探索人生的全貌。</p>
+                <br>
+                <p>工作之余，我喜欢用代码解决问题，用文字记录思考，用冥想回归当下。</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat-card">
+                    <div class="number">6+</div>
+                    <div class="label">AI Skills 创建</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">∞</div>
+                    <div class="label">学习热情</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">100+</div>
+                    <div class="label">自动化任务</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">1</div>
+                    <div class="label">知行合一</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <div class="section-label">技能树</div>
+        <h2>核心能力</h2>
+        <p class="section-desc">持续精进的技术栈与思维模型</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="icon">🤖</div>
+                <h3>AI 工程化</h3>
+                <p>Skill 设计、Prompt 工程、Agent 编排、自动化工作流</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">💻</div>
+                <h3>全栈开发</h3>
+                <p>Python / Node.js / Vue / HTML+CSS，从后端到前端</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">🔧</div>
+                <h3>自动化运维</h3>
+                <p>CI/CD、Pages 部署、脚本编写、效率工具链</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">📊</div>
+                <h3>数据分析</h3>
+                <p>金融数据分析、可视化、量化策略研究</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">🧠</div>
+                <h3>认知科学</h3>
+                <p>思维模型、决策框架、知识管理体系</p>
+            </div>
+            <div class="skill-card">
+                <div class="icon">🧘</div>
+                <h3>正念修行</h3>
+                <p>冥想实践、八字命理研究、人生维度观察</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="fade-in">
+        <div class="section-label">项目作品</div>
+        <h2>近期项目</h2>
+        <p class="section-desc">用技术解决实际问题，用实践验证认知</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Skill Creator v2.1</h3>
+                <p>基于腾讯终极实战经验手册的 AI Skill 创建技能，涵盖从需求分析到验证迭代的全流程。</p>
+                <div class="tags">
+                    <span class="tag">AI Skill</span>
+                    <span class="tag">Prompt 工程</span>
+                    <span class="tag">方法论</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Pages Deploy</h3>
+                <p>零配置静态网站自动部署工具，修改内容后一键构建部署，支持多平台自动识别。</p>
+                <div class="tags">
+                    <span class="tag">自动化</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">零配置</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>慧行人生观察系统</h3>
+                <p>多维度人生观察系统，结合八字流日流月分析，覆盖投资、修行、健康、情绪等维度。</p>
+                <div class="tags">
+                    <span class="tag">命理</span>
+                    <span class="tag">全貌观察</span>
+                    <span class="tag">自我认知</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>咨询部/护理部绩效计算</h3>
+                <p>为宁波美之术公司开发的绩效工资自动计算工具，简化薪资核算流程。</p>
+                <div class="tags">
+                    <span class="tag">业务工具</span>
+                    <span class="tag">自动化</span>
+                    <span class="tag">Excel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <div class="section-label">联系我</div>
+        <h2>一起交流</h2>
+        <p class="section-desc">关于技术、修行、人生，欢迎随时聊聊</p>
+        <div class="contact-links">
+            <a href="mailto:zhixing@example.com" class="contact-card">
+                <div class="icon">📧</div>
+                <h3>邮箱</h3>
+                <p>zhixing@example.com</p>
+            </a>
+            <a href="#" class="contact-card">
+                <div class="icon">💬</div>
+                <h3>微信</h3>
+                <p>扫码添加好友</p>
+            </a>
+            <a href="#" class="contact-card">
+                <div class="icon">🐙</div>
+                <h3>GitHub</h3>
+                <p>查看开源项目</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 知行 · 用 <a href="https://www.codebuddy.cn" target="_blank">WorkBuddy</a> 构建 · 知行合一</p>
+    </footer>
+
+    <script>
+        // 滚动渐入动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // 导航高亮
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav .links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.style.color = link.getAttribute('href') === '#' + current ? 'var(--text)' : 'var(--text-dim)';
+            });
+        });
+    </script>
+</body>
+</html>
